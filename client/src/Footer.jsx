@@ -6,6 +6,12 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
+const FooterBackground = styled.div`
+background-color: #f4f4f4;
+width: 100%;
+height: 150px;
+`;
+
 const StyledDiv = styled.div`
 font-family: Avenir Next;
 font-size: 14px;
@@ -14,6 +20,9 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 margin-top: 5%;
+margin-left: -5%;
+margin-right: -5%;
+padding-top: 3%;
 `;
 
 const IconList = styled.div`
@@ -21,8 +30,8 @@ display: flex;
 flex-direction: row;
 align-items: center;
 justify-content: center;
-margin-top: 3%;
-margin-bottom: 3%
+margin-top: 1%;
+padding-bottom: 2%;
 `;
 
 const Icon = styled.a`
@@ -34,7 +43,7 @@ color: black;
 `;
 
 const Footer = (props) => (
-  <div>
+  <FooterBackground>
     <StyledDiv>
       Connect
     </StyledDiv>
@@ -58,7 +67,7 @@ const Footer = (props) => (
 
 
     </IconList>
-  </div>
+  </FooterBackground>
 
 )
 

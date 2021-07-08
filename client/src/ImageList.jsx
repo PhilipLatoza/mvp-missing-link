@@ -6,7 +6,7 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 
 
 const StyledDiv = Styled.div`
-margin-top: 5%;
+margin-top: 2%;
 padding-left: 15%;
 padding-right: 15%;
 `;
