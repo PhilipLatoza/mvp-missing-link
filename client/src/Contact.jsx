@@ -2,21 +2,28 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import Button from "@material-ui/core/Button";
 
+const Container = styled.div`
+border: 1px solid black;
+margin-top: 5%;
+margin-left: 20%;
+margin-right: 20%;
+`;
+
 const StyledButton = styled.button`
 font-family: Avenir Next;
-width: 300px;
-height: 45px;
+width: 20%;
+height: 5vh;
 color: white;
 background-color: #1c1b1b;
 cursor: pointer;
 transition: 0.3s;
+margin-bottom: 8%;
 &:hover ${StyledButton} {
   background: #C50000;
   color: white;
   border: none;
 }
 `
-
 const StyledHeader = styled.div`
 font-family: Avenir Next;
 font-size: 20px;
@@ -38,14 +45,18 @@ justify-content: center;
 
 const StyledInput = styled.input`
 font-family: Avenir Next;
-width: 800px;
-height: 40px;
+width: 50vw;
+height: 4vh;
+&:hover ${StyledInput} {
+  background: #f4f4f4;
 `;
 
 const StyledArea = styled.textarea`
 font-family: Avenir Next;
-width: 801px;
+width: 50vw;
 height: 60px;
+&:hover ${StyledArea} {
+  background: #f4f4f4;
 `;
 
 function Contact({ newMessage }) {
@@ -53,9 +64,7 @@ function Contact({ newMessage }) {
   const [email, addEmail] = useState('');
   const [message, addMessage] = useState('');
   return (
-    <div>
-      <StyledHeader>Personal Contact</StyledHeader>
-
+    <Container>
         <FormDiv
           type="submit"
           value="Submit"
@@ -72,7 +81,7 @@ function Contact({ newMessage }) {
             addMessage('')
           }}
         >
-          <label>
+          <StyledHeader>Personal Contact</StyledHeader>
             <StyledInput
               type="text"
               placeholder="Name*"
@@ -82,11 +91,9 @@ function Contact({ newMessage }) {
               }}
               required
             />
-          </label>
           <p> </p>
-          <label>
             <StyledInput
-              type="text"
+              type="email"
               placeholder="Email*"
               value={email}
               onChange={(event) => {
@@ -94,9 +101,7 @@ function Contact({ newMessage }) {
               }}
               required
             />
-          </label>
           <p> </p>
-          <label>
             <StyledArea
               type="text"
               placeholder="Message*"
@@ -108,11 +113,10 @@ function Contact({ newMessage }) {
               }}
               required
             />
-          </label>
           <p> </p>
           <StyledButton type="submit">SUBMIT</StyledButton>
         </FormDiv>
-    </div>
+    </Container>
   );
 }
 

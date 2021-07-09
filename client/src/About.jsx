@@ -18,7 +18,8 @@ display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-margin-top: 3%;
+margin-top: 2%;
+margin-bottom: 3%;
 padding-left: 25%;
 padding-right: 25%;
 `;
@@ -46,6 +47,8 @@ function About() {
         </p>
       </StyledParagraph>
       <Image src="https://st.depositphotos.com/1101161/4028/i/950/depositphotos_40285825-stock-photo-waikiki-beach-in-honolulu-hawaii.jpg" alt="Hawaii" />
+      <StyledHeader>Future</StyledHeader>
+      <StyledParagraph>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sit amet lorem ut leo feugiat ullamcorper id non lorem. Maecenas iaculis nibh a rhoncus dignissim. Praesent ut pretium ante. Curabitur lectus erat, fringilla eget varius id, fringilla sed magna. Nullam tempus euismod sapien, sed faucibus neque bibendum in. Etiam sed est vulputate, lobortis purus non, ullamcorper leo. In laoreet lectus in leo fermentum, non commodo metus convallis.</StyledParagraph>
     </Container>
 
   );

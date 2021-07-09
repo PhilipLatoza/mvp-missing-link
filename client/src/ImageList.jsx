@@ -3,29 +3,74 @@ import * as React from 'react';
 import Styled from 'styled-components';
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
+import Modal from 'react-modal';
+import { useState } from 'react';
 
+const Image = Styled(ImageListItem)`
+&:hover ${Image} {
+  border: none;
+  cursor: pointer;
+}
+`
 
 const StyledDiv = Styled.div`
-margin-top: 2%;
-padding-left: 15%;
-padding-right: 15%;
+margin-top: 3%;
+padding-left: 25%;
+padding-right: 25%;
 `;
 
+const StyledImg = Styled.img`
+width: 100%;
+height: 100%;
+`;
+
+const customStyles = {
+  content: {
+    // width: 1800px;
+    // height: 847px;
+
+    // top: 'auto',
+    // left: 'auto',
+    // right: 'auto',
+    // bottom: 'auto',
+    // marginRight: '-75%',
+    // transform: 'translate(10%, 25%)',
+  },
+};
+
 export default function StandardImageList() {
+  const [imageIsOpen, setImageIsOpen] = useState(false);
+  const [source, setSource] = useState('');
   return (
     <StyledDiv>
-      <ImageList sx={{ width: 500, height: 450 }} cols={4} rowHeight={164}>
+      <ImageList sx={{ width: 500, height: 450 }} cols={3} rowHeight={164}>
         {itemData.map((item) => (
-          <ImageListItem key={item.img}>
+          <Image
+            type="submit"
+            onClick={() => {
+              setImageIsOpen(true)
+              setSource(item.img)
+            }}
+
+            key={item.img}
+          >
             <img
               srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format 1x,
                   ${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
               loading="lazy"
             />
-          </ImageListItem>
+          </Image>
         ))}
       </ImageList>
+      <Modal
+        isOpen={imageIsOpen}
+        ariaHideApp={false}
+        onRequestClose={() => setImageIsOpen(false)}
+        style={customStyles}
+      >
+        <StyledImg src={source} alt="expandedImage" />
+      </Modal>
     </StyledDiv>
   );
 }

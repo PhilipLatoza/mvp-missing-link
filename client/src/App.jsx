@@ -4,6 +4,7 @@ import Home from './Home.jsx';
 import About from './About.jsx';
 import Contact from './Contact.jsx';
 import Footer from './Footer.jsx';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,6 +12,7 @@ import {
   Link
 } from "react-router-dom";
 import Button from '@material-ui/core/Button';
+import Slide from '@material-ui/core/Slide';
 import styled from 'styled-components';
 import {CSSTransition} from 'react-transition-group';
 
@@ -19,15 +21,18 @@ display: flex;
 text-decoration: none;
 flex-direction: row;
 align-items: center;
-justify-content: space-around;
+justify-content: center;
 background-color: #1c1b1b;
-margin-left: -2%;
-margin-right: -2%;
+height: 4vh;
+padding-right: 1px;
+margin-left: -10%;
+margin-right: -8%;
 `;
 
 const NavLink = styled(Link)`
 font-family: Avenir Next;
 font-size: 20px;
+margin-left: 2%;
 text-decoration: none;
 color: white;
 NavLink:visited {
@@ -47,7 +52,10 @@ class App extends React.Component {
   }
 
   newMessage(message) {
-    console.log(message);
+    axios.post('/message', message)
+    .then((response) => {
+      console.log(response);
+    })
   }
 
   render() {
@@ -60,15 +68,12 @@ class App extends React.Component {
                 <NavLink to="/about">About</NavLink>
                 <NavLink to="/contact">Contact</NavLink>
             </Nav>
-
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
             <Route path="/about">
-
               <About />
-
             </Route>
             <Route path="/contact">
               <Contact newMessage={this.newMessage}/>

@@ -15,15 +15,15 @@ height: 150px;
 
 const StyledDiv = styled.div`
 font-family: Avenir Next;
-font-size: 14px;
+font-size: 16px;
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-margin-top: 5%;
+margin-top: 4%;
 margin-left: -5%;
 margin-right: -5%;
-padding-top: 3%;
+padding-top: 2%;
 `;
 
 const IconList = styled.div`

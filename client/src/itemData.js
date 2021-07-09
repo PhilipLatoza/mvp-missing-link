@@ -1,4 +1,4 @@
-import image from '../dist/test.png';
+import image from '../dist/test.png'
 
 const itemData = [
   {
