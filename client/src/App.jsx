@@ -29,12 +29,30 @@ const NavLink = styled(Link)`
 font-family: Avenir Next;
 font-size: 20px;
 text-decoration: none;
-color: white
+color: white;
+NavLink:visited {
+  color: white;
+}
+&:hover ${NavLink} {
+  color: #C50000;
+  border: none;
+}
 `
 
-function App() {
-  return (
-    <div>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.newMessage = this.newMessage.bind(this);
+  }
+
+  newMessage(message) {
+    console.log(message);
+  }
+
+  render() {
+    return (
+      <div>
       <Router>
         <div>
             <Nav>
@@ -53,15 +71,16 @@ function App() {
 
             </Route>
             <Route path="/contact">
-              <Contact />
+              <Contact newMessage={this.newMessage}/>
             </Route>
           </Switch>
 
         </div>
       </Router>
       <Footer />
-    </div>
-  );
+      </div>
+    )
+  }
 }
 
 export default App;

@@ -5,6 +5,7 @@ import TwitterIcon from '@material-ui/icons/Twitter';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import YouTubeIcon from '@material-ui/icons/YouTube';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@material-ui/icons/GitHub';
 
 const FooterBackground = styled.div`
 background-color: #f4f4f4;
@@ -40,6 +41,10 @@ padding-left: 10px;
 padding-right: 10px;
 text-decoration: none;
 color: black;
+&:hover ${Icon} {
+  color: #C50000;
+  border: none;
+}
 `;
 
 const Footer = (props) => (
@@ -62,6 +67,9 @@ const Footer = (props) => (
       </Icon>
       <Icon href="https://www.linkedin.com/" target="_blank">
       <LinkedInIcon />
+      </Icon>
+      <Icon href="https://www.github.com/" target="_blank">
+      <GitHubIcon />
       </Icon>
 
 

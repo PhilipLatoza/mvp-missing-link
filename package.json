@@ -6,7 +6,8 @@
   "scripts": {
     "test": "test",
     "react-dev": "webpack -d eval-source-map -w",
-    "start": "nodemon server/index.js"
+    "start": "nodemon server/index.js",
+    "mysql": "mysql -u root -p"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
     "@material-ui/core": "^4.12.1",
     "@material-ui/icons": "^4.11.2",
     "express": "^4.17.1",
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

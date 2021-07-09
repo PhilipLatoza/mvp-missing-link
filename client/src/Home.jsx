@@ -4,7 +4,7 @@ import ImageList from './ImageList.jsx';
 
 const StyledHeader = styled.div`
 font-family: Avenir Next;
-font-size: 25px;
+font-size: 27px;
 color: black;
 display: flex;
 flex-direction: column;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import Button from "@material-ui/core/Button";
 
 const StyledButton = styled.button`
 font-family: Avenir Next;
@@ -14,7 +15,7 @@ transition: 0.3s;
   color: white;
   border: none;
 }
-`;
+`
 
 const StyledHeader = styled.div`
 font-family: Avenir Next;
@@ -47,16 +48,38 @@ width: 801px;
 height: 60px;
 `;
 
-function Contact() {
+function Contact({ newMessage }) {
+  const [name, addName] = useState('');
+  const [email, addEmail] = useState('');
+  const [message, addMessage] = useState('');
   return (
     <div>
       <StyledHeader>Personal Contact</StyledHeader>
 
-        <FormDiv>
+        <FormDiv
+          type="submit"
+          value="Submit"
+          onSubmit={(event) => {
+            event.preventDefault();
+            const oneMessage = {
+              name: name,
+              email: email,
+              message: message
+            }
+            newMessage(oneMessage);
+            addName(''),
+            addEmail(''),
+            addMessage('')
+          }}
+        >
           <label>
             <StyledInput
               type="text"
               placeholder="Name*"
+              value={name}
+              onChange={(event) => {
+                addName(event.target.value);
+              }}
               required
             />
           </label>
@@ -65,6 +88,10 @@ function Contact() {
             <StyledInput
               type="text"
               placeholder="Email*"
+              value={email}
+              onChange={(event) => {
+                addEmail(event.target.value);
+              }}
               required
             />
           </label>
@@ -75,6 +102,10 @@ function Contact() {
               placeholder="Message*"
               rows="5"
               cols="100"
+              value={message}
+              onChange={(event) => {
+                addMessage(event.target.value);
+              }}
               required
             />
           </label>
